@@ -1,0 +1,10 @@
+baseURL = "https://emafree.github.io/"
+languageCode = "it"
+title = "emafree"
+theme = "emafree"
+
+# Non generare i file RSS e sitemap (non servono per una galleria foto)
+disableKinds = ["RSS", "sitemap", "taxonomy", "term"]
+
+[markup.goldmark.renderer]
+  unsafe = true

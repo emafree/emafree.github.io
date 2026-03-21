@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="home">
+
+  <header class="site-header">
+    <span class="site-name">emafree</span>
+  </header>
+
+  <div class="home-cover">
+    <img src="/photos/cover.jpg" alt="" class="cover-img" />
+  </div>
+
+  <nav class="gallery-nav">
+    <ul>
+      {{ range .Site.AllPages }}
+        {{ if and (eq .Kind "page") (eq .Section "photos") }}
+        <li>
+          <a href="{{ .RelPermalink }}" class="nav-btn">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </nav>
+
+</div>
+{{ end }}
