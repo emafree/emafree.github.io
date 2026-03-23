@@ -43,7 +43,7 @@ html, body {
 .site-name {
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   letter-spacing: 0.22em;
   color: var(--text);
   text-transform: lowercase;
@@ -83,7 +83,7 @@ html, body {
   text-decoration: none;
   font-family: var(--font-sans);
   font-weight: 200;
-  font-size: 0.68rem;
+  font-size: 0.85em;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--text);
