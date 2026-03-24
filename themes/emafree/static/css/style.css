@@ -85,7 +85,6 @@ html, body {
   font-weight: 200;
   font-size: 0.85em;
   letter-spacing: 0.28em;
-//  text-transform: uppercase;
   color: var(--text);
   padding-bottom: 3px;
   border-bottom: 1px solid transparent;
@@ -113,9 +112,8 @@ html, body {
   text-decoration: none;
   font-family: var(--font-sans);
   font-weight: 200;
-  font-size: 0.65rem;
+  font-size: 0.85rem;
   letter-spacing: 0.24em;
-//  text-transform: uppercase;
   color: var(--text-light);
   transition: color 0.2s;
   white-space: nowrap;
@@ -138,7 +136,6 @@ html, body {
 .photo-grid {
   display: flex;
   flex-direction: column;
-//  gap: 80px;
   gap: 5px;
   padding: 60px 44px 60px 15%;
   background: var(--bg);
