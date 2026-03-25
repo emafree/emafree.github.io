@@ -55,7 +55,7 @@ html, body {
   flex-direction: column;
   /* justify-content: space-between; */
   justify-content: flex-start;
-  gap: 400px;
+  gap: 40vh;
   padding: 32px 24px;
   background: linear-gradient(to right, rgba(240,238,235,0.7) 0%, transparent 100%);
   z-index: 10;

@@ -14,10 +14,10 @@
       <a href="{{ $img.RelPermalink }}" class="lb-trigger"
          data-src="{{ $img.RelPermalink }}"
          data-idx="{{ $i }}">
-        {{ $thumb := $img.Resize "800x webp q85" }}
-        <img src="{{ $thumb.RelPermalink }}"
-             alt=""
-             loading="lazy" />
+          {{ $thumb := $img.Resize "2048x webp q85" }}
+          <img src="{{ $thumb.RelPermalink }}"
+          alt=""
+          loading="lazy" />
       </a>
     </div>
     {{ end }}
