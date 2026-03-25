@@ -1,23 +1,24 @@
 {{ define "main" }}
 <div class="home">
 
-  <header class="site-header">
-    <a href="/about/" class="site-name">emafree</a>  </header>
+  <div class="home-sidebar">
+    <a href="/about/" class="site-name">emafree</a>
+    <nav class="gallery-nav">
+      <ul>
+        {{ range .Site.AllPages }}
+          {{ if and (eq .Kind "page") (eq .Section "photos") }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="nav-btn">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+
   <div class="home-cover">
     <img src="/photos/cover.jpg" alt="" class="cover-img" />
   </div>
-
-  <nav class="gallery-nav">
-    <ul>
-      {{ range .Site.AllPages }}
-        {{ if and (eq .Kind "page") (eq .Section "photos") }}
-        <li>
-          <a href="{{ .RelPermalink }}" class="nav-btn">{{ .Title }}</a>
-        </li>
-        {{ end }}
-      {{ end }}
-    </ul>
-  </nav>
 
 </div>
 {{ end }}
