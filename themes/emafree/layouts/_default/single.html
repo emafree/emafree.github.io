@@ -94,4 +94,47 @@
   });
 })();
 </script>
+
+/*
+<script>
+(function() {
+  const items = document.querySelectorAll('.photo-item img');
+
+  function update() {
+    const mid = window.innerHeight / 2;
+    items.forEach(img => {
+      const rect = img.getBoundingClientRect();
+      const imgMid = rect.top + rect.height / 2;
+      const dist = Math.abs(imgMid - mid);
+      const maxDist = window.innerHeight * 0.6;
+      const ratio = Math.min(dist / maxDist, 1);
+      const grayscale = Math.round(ratio * 60);
+      const opacity = 1 - ratio * 0.5;
+      img.style.filter = `grayscale(${grayscale}%) opacity(${opacity})`;
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+*/
+
+<script>
+(function() {
+  const items = document.querySelectorAll('.photo-item img');
+
+  function update() {
+    items.forEach(img => {
+      const rect = img.getBoundingClientRect();
+      const fullyVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+      img.style.filter = fullyVisible ? 'grayscale(0%)' : 'grayscale(85%) opacity(0.2)';
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+
 {{ end }}
