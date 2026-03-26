@@ -46,14 +46,13 @@ html, body {
 }
 
 .home-sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 15%;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   justify-content: flex-start;
   gap: 15vh;
   padding: 32px 24px;
@@ -97,22 +96,29 @@ html, body {
 
 /* ── GALLERIA ─────────────────────────────────────── */
 .gallery-page {
+  display: flex;
   min-height: 100vh;
 }
 
-.gallery-header {
+.gallery-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 100vh;
   display: flex;
-  align-items: baseline;
-  gap: 36px;
-  padding: 36px 44px 28px;
-  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 24px;
+  background: var(--bg);
+  z-index: 10;
 }
 
 .back-btn {
   text-decoration: none;
   font-family: var(--font-sans);
   font-weight: 200;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   letter-spacing: 0.24em;
   color: var(--text-light);
   transition: color 0.2s;
@@ -123,53 +129,49 @@ html, body {
   color: var(--text);
 }
 
+.nav-btn-current {
+  font-size: 1.3rem;
+  font-weight: 300;
+  pointer-events: none;
+  border-bottom: none;
+}
+
 .gallery-title {
   font-family: var(--font-serif);
   font-weight: 300;
   font-style: italic;
-  font-size: 2.2rem;
+  font-size: 1.4rem;
   letter-spacing: 0.02em;
   color: var(--text);
 }
+
 
 /* ── GRIGLIA ──────────────────────────────────────── */
 .photo-grid {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 60px 44px 60px 15%;
+  align-items: flex-end;
+  margin-left: 15%;
+  padding: 32px 3% 60px 24px;
   background: var(--bg);
+  width: 85%;
 }
 
 .photo-item {
-  width: 55%;
   overflow: hidden;
-}
-
-.photo-item:nth-child(odd) {
-  align-self: flex-start;
-}
-
-.photo-item:nth-child(even) {
-  align-self: flex-end;
-}
-
-.photo-item a {
-  display: block;
-  width: 100%;
+  margin-bottom: 0;
 }
 
 .photo-item img {
-  width: 100%;
-  height: auto;
+  max-height: 90vh;
+  width: auto;
+  max-width: 100%;
   display: block;
-  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              filter 0.4s ease;
+  transition: filter 0.4s ease;
   filter: grayscale(15%);
 }
 
 .photo-item:hover img {
-  transform: scale(1.04);
   filter: grayscale(0%);
 }
 
@@ -277,3 +279,7 @@ html, body {
 .about-content a:hover {
   color: var(--text);
 }
+
+
+
+

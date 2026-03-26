@@ -1,23 +1,41 @@
 {{ define "main" }}
 <div class="gallery-page">
 
-  <header class="gallery-header">
+/*
+  <div class="gallery-sidebar">
     <a href="/" class="back-btn">← emafree</a>
     <h1 class="gallery-title">{{ .Title }}</h1>
-  </header>
-
-  {{ $images := .Resources.ByType "image" }}
+  </div>
+*/
+<div class="gallery-sidebar">
+  <a href="/" class="back-btn">← emafree</a>
+  <nav class="gallery-nav">
+    <ul>
+      {{ range .Site.AllPages }}
+        {{ if and (eq .Kind "page") (eq .Section "photos") }}
+        <li>
+          <a href="{{ .RelPermalink }}"
+             class="nav-btn {{ if eq .Title $.Title }}nav-btn-current{{ end }}">
+            {{ .Title }}
+          </a>
+        </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </nav>
+</div>
 
   <div class="photo-grid">
+    {{ $images := where (.Resources.ByType "image") "Name" "ne" "cover.jpg" }}
     {{ range $i, $img := $images }}
     <div class="photo-item">
       <a href="{{ $img.RelPermalink }}" class="lb-trigger"
          data-src="{{ $img.RelPermalink }}"
          data-idx="{{ $i }}">
-          {{ $thumb := $img.Resize "2048x webp q85" }}
-          <img src="{{ $thumb.RelPermalink }}"
-          alt=""
-          loading="lazy" />
+        {{ $thumb := $img.Resize "2048x webp q85" }}
+        <img src="{{ $thumb.RelPermalink }}"
+             alt=""
+             loading="lazy" />
       </a>
     </div>
     {{ end }}
