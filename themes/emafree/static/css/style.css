@@ -155,6 +155,7 @@ html, body {
   padding: 32px 3% 60px 24px;
   background: var(--bg);
   width: 85%;
+  gap: 4px;
 }
 
 .photo-item {
