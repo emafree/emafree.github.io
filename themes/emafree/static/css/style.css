@@ -23,19 +23,27 @@ html, body {
   font-weight: 200;
   letter-spacing: 0.04em;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden; /* Blocca lo scroll della pagina principale */
 }
 
-/* ── HOME ────────────────────────────────────────── */
+/* ── CONFIGURAZIONE BODY PER PAGINE SPECIFICHE ────── */
+/* Blocca lo scroll del body solo nelle pagine delle gallerie fotografiche */
+body:has(.gallery-page) {
+  overflow: hidden;
+}
+
+/* ── HOME (Ripristinata e corretta) ────────────────── */
 .home {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  width: 100%;
 }
 
 .home-cover {
   width: 100%;
   height: 100%;
+  margin-left: 15%; /* Lascia lo spazio per la sidebar anche nella home */
+  width: 85%;
 }
 
 .cover-img {
@@ -147,20 +155,20 @@ html, body {
   color: var(--text);
 }
 
-/* ── SLIDER A SCHERMO INTERO (Sostituisce Griglia e Lightbox) ── */
+/* ── SLIDER A SCHERMO INTERO ───────────────────────── */
 .photo-slider {
   flex-grow: 1;
   height: 100vh;
-  margin-left: 15%; /* Lascia lo spazio per la sidebar */
+  margin-left: 15%;
   width: 85%;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Nasconde la barra su Firefox */
+  scrollbar-width: none;
   background: var(--bg);
 }
 
 .photo-slider::-webkit-scrollbar {
-  display: none; /* Nasconde la barra su Chrome/Safari/Edge */
+  display: none;
 }
 
 .slide-item {
@@ -187,9 +195,10 @@ html, body {
   .gallery-nav ul { gap: 28px; }
   .gallery-title  { font-size: 1.7rem; }
   
-  /* Adatta lo slider sui dispositivi mobili */
   .gallery-sidebar { width: 100%; height: auto; position: relative; }
   .photo-slider { margin-left: 0; width: 100%; }
+  .home-sidebar { width: 100%; height: auto; position: relative; }
+  .home-cover { margin-left: 0; width: 100%; }
 }
 
 /* ── ABOUT ────────────────────────────────────────── */
