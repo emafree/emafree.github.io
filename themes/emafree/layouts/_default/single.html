@@ -24,10 +24,10 @@
     {{ range $i, $img := $images }}
     <div class="slide-item" data-idx="{{ $i }}">
       <img src="{{ $img.RelPermalink }}"
-           width="{{ $img.Width }}" 
-           height="{{ $img.Height }}"
-           alt=""
-           loading="lazy" />
+       width="{{ $img.Width }}" 
+       height="{{ $img.Height }}"
+       alt=""
+       {{ if eq $i 0 }}loading="eager" fetchpriority="high"{{ else }}loading="lazy"{{ end }} />           
     </div>
     {{ end }}
   </div>
