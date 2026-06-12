@@ -23,10 +23,9 @@
     {{ $images := where (.Resources.ByType "image") "Name" "ne" "cover.jpg" }}
     {{ range $i, $img := $images }}
     <div class="slide-item" data-idx="{{ $i }}">
-      {{ $thumb := $img.Resize "2048x webp q85" }}
-      <img src="{{ $thumb.RelPermalink }}"
-           width="{{ $thumb.Width }}" 
-           height="{{ $thumb.Height }}"
+      <img src="{{ $img.RelPermalink }}"
+           width="{{ $img.Width }}" 
+           height="{{ $img.Height }}"
            alt=""
            loading="lazy" />
     </div>
@@ -49,11 +48,11 @@
     
     slides[current].scrollIntoView({ behavior: 'smooth', block: 'start' });
     
-    // Sblocca il controllo dopo la fine dell'animazione
+    // Sblocca il controllo dopo la fine dell'animazione di scorrimento
     setTimeout(() => { isMoving = false; }, 600);
   }
 
-  // Gestione Rotella del Mouse
+  // Gestione della Rotella del Mouse
   window.addEventListener('wheel', e => {
     if (isMoving) return;
     if (e.deltaY > 0) {
@@ -63,7 +62,7 @@
     }
   }, { passive: true });
 
-  // Gestione Tasti Tastiera (Freccia Su/Giù, PgUp, PgDn)
+  // Gestione Tasti Tastiera (Freccia Su/Giù, Pagina Su/Giù)
   document.addEventListener('keydown', e => {
     if (isMoving) return;
     if (e.key === 'ArrowDown' || e.key === 'PageDown') {
@@ -77,3 +76,4 @@
 })();
 </script>
 {{ end }}
+
