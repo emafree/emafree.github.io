@@ -20,7 +20,7 @@
 </div>
 
   <div class="photo-slider" id="photo-slider">
-    {{ $images := where (.Resources.ByType "image") "Name" "ne" "cover.jpg" }}
+    {{ $images := where (.Resources.ByType "image") "Name" "ne" "cover.webp" }}
     {{ range $i, $img := $images }}
     <div class="slide-item" data-idx="{{ $i }}">
       <img src="{{ $img.RelPermalink }}"
