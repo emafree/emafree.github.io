@@ -16,6 +16,51 @@
       <p>Ruota il telefono<br>per una migliore esperienza</p>
     </div>
   </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <nav>
+      <ul>
+        {{ range where .Site.AllPages "Kind" "page" }}
+          {{ if eq .Section "photos" }}
+          <li><a href="{{ .RelPermalink }}" class="mobile-menu-link">{{ .Title }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+
   {{ block "main" . }}{{ end }}
+
+  <script>
+  (function() {
+    var overlay = document.getElementById('rotate-overlay');
+    function checkRotate() {
+      if (window.innerWidth < 900 && window.innerHeight > window.innerWidth) {
+        overlay.style.display = 'flex';
+      } else {
+        overlay.style.display = '';
+      }
+    }
+    checkRotate();
+    window.addEventListener('resize', checkRotate);
+
+    var btn = document.getElementById('hamburger');
+    var menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', function() {
+      btn.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        btn.classList.remove('open');
+        menu.classList.remove('open');
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
