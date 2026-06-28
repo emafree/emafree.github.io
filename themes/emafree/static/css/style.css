@@ -236,13 +236,13 @@ body:has(.gallery-page) {
     position: relative;
     width: 100%;
     height: auto;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px 20px;
-    padding: 16px 20px;
+    max-height: 100vh;        /* non supera l'altezza dello schermo */
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 20px;
+    overflow-y: auto;         /* scorrevole verticalmente */
   }
-
+  
   .photo-slider {
     margin-left: 0;
     width: 100%;
